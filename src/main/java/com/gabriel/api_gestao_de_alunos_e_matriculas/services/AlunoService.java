@@ -2,6 +2,7 @@ package com.gabriel.api_gestao_de_alunos_e_matriculas.services;
 
 import com.gabriel.api_gestao_de_alunos_e_matriculas.entities.Aluno;
 import com.gabriel.api_gestao_de_alunos_e_matriculas.repositories.AlunoRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,11 @@ public class AlunoService {
                 });
 
         return this.alunoRepository.save(aluno);
+    }
+
+    public Aluno findById(Long id) {
+        return this.alunoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Aluno não encontrado, ID: " + id));
     }
 
     public List<Aluno> findAll() {
