@@ -4,6 +4,8 @@ import com.gabriel.api_gestao_de_alunos_e_matriculas.entities.Aluno;
 import com.gabriel.api_gestao_de_alunos_e_matriculas.repositories.AlunoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AlunoService {
 
@@ -21,6 +23,10 @@ public class AlunoService {
                 });
 
         return this.alunoRepository.save(aluno);
+    }
+
+    public List<Aluno> findAll() {
+        return this.alunoRepository.findAll();
     }
 
 }
