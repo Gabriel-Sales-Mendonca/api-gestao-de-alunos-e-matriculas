@@ -12,11 +12,9 @@ import java.util.List;
 public class AlunoService {
 
     private final AlunoRepository alunoRepository;
-    private final MatriculaService matriculaService;
 
-    public AlunoService(AlunoRepository alunoRepository, MatriculaService matriculaService) {
+    public AlunoService(AlunoRepository alunoRepository) {
         this.alunoRepository = alunoRepository;
-        this.matriculaService = matriculaService;
     }
 
     public Aluno create(Aluno aluno) {
@@ -44,8 +42,6 @@ public class AlunoService {
         alunoDB.setNome(dadosAluno.getNome());
         alunoDB.setTelefone(dadosAluno.getTelefone());
         alunoDB.setDataNascimento(dadosAluno.getDataNascimento());
-
-        List<Matricula> matriculasJaCadastradas = this.matriculaService.findAllByAlunoId(id);
 
         dadosAluno.getMatriculas()
                         .stream()
