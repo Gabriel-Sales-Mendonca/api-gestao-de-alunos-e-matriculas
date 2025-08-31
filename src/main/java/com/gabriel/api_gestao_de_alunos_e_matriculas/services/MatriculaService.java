@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public class MatriculaService {
 
-    private MatriculaRepository matriculaRepository;
-    private AlunoService alunoService;
+    private final MatriculaRepository matriculaRepository;
+    private final AlunoService alunoService;
 
     public MatriculaService(MatriculaRepository matriculaRepository, AlunoService alunoService) {
         this.matriculaRepository = matriculaRepository;

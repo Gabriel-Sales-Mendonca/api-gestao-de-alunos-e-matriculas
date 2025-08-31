@@ -16,8 +16,13 @@ public class Matricula extends EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String codigoMatricula;
+
+    @Column(unique = true)
     private String nomeCurso;
+
     private LocalDate dataInicio;
 
     @ManyToOne

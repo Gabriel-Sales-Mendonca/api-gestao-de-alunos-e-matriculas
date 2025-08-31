@@ -23,7 +23,7 @@ public class AlunoController {
     @PostMapping
     public ResponseEntity<AlunoResponseDTO> create(@RequestBody AlunoRequestDTO alunoRequestDTO) {
         Aluno alunoParaCriar = AlunoMapper.toEntity(alunoRequestDTO);
-        Aluno alunoCreated = this.alunoService.criar(alunoParaCriar);
+        Aluno alunoCreated = this.alunoService.create(alunoParaCriar);
 
         return ResponseEntity.ok(AlunoMapper.toDTO(alunoCreated));
     }
@@ -34,6 +34,14 @@ public class AlunoController {
         List<AlunoResponseDTO> alunosResponseDTO = alunos.stream().map(aluno -> AlunoMapper.toDTO(aluno)).toList();
 
         return ResponseEntity.ok(alunosResponseDTO);
+    }
+
+    @PutMapping("/{id}/update")
+    public ResponseEntity<AlunoResponseDTO> update(@PathVariable Long id, @RequestBody AlunoRequestDTO alunoRequestDTO) {
+        Aluno dadosAluno = AlunoMapper.toEntity(alunoRequestDTO);
+        Aluno alunoUpdated = this.alunoService.update(id, dadosAluno);
+
+        return ResponseEntity.ok(AlunoMapper.toDTO(alunoUpdated));
     }
 
 }
