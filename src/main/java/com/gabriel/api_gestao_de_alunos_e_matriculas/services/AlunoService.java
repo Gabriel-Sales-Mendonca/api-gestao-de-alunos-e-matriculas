@@ -1,7 +1,6 @@
 package com.gabriel.api_gestao_de_alunos_e_matriculas.services;
 
 import com.gabriel.api_gestao_de_alunos_e_matriculas.entities.Aluno;
-import com.gabriel.api_gestao_de_alunos_e_matriculas.entities.Matricula;
 import com.gabriel.api_gestao_de_alunos_e_matriculas.repositories.AlunoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
